@@ -1,16 +1,5 @@
-
-// export default function fetchImages(searchQuery) {
-    
-//     const API_KEY = '22334944-1a4c27752b28577a34c92f730';
-
-    // // return fetch(`${BASE_URL}?image_type=photo&orientation=horizontal&q=${searchQuery}&page=номер_страницы&per_page=12&key=${API_KEY}`)
-    // return fetch(`${BASE_URL}?image_type=photo&orientation=horizontal&q=${searchQuery}&page=1&per_page=12&key=${API_KEY}`)
-    //  .then(response => { 
-    //     if(!response.ok) {
-    //         throw Error(`Sorry, but such country doesn't exist`);
-    //     }
-    //     return response.json()});
-// }
+const BASE_URL = 'https://pixabay.com/api/';  
+const API_KEY = '22334944-1a4c27752b28577a34c92f730';
 
 export default class ImagesApiService {
     constructor() {
@@ -20,19 +9,12 @@ export default class ImagesApiService {
 
     fetchImages () {
         console.log(this);
-        const BASE_URL = 'https://pixabay.com/api/';  
-        const API_KEY = '22334944-1a4c27752b28577a34c92f730';
 
         return fetch(`${BASE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`)
-        .then(response => { 
-        if(!response.ok) {
-            throw Error(`Sorry, but such country doesn't exist`);
-        }
-            response.json()})
-        .then(images => {
-            console.log(images);
+        .then(response => response.json())
+        .then(({hits}) => {
             this.incrementPage();
-            return images;
+            return hits;
         });
     }
 
