@@ -2,6 +2,10 @@ import './sass/main.scss';
 import ImagesApiService from './apiService.js';
 import imagesListTpl from './templates/imagesListTpl.hbs';
 
+import { error } from "@pnotify/core";
+import "@pnotify/core/dist/PNotify.css";
+import "@pnotify/core/dist/BrightTheme.css";
+
 
 
 const refs = {
@@ -13,11 +17,6 @@ const refs = {
 
 const imagesApiService = new ImagesApiService(); 
 
-// const element = document.getElementById('.my-element-selector');
-refs.scrollBtn.scrollIntoView({
-  behavior: 'smooth',
-  block: 'end',
-});
 
 refs.form.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
@@ -28,7 +27,11 @@ function onSearch (evt) {
     imagesApiService.query = evt.currentTarget.elements.query.value;
 
     if(imagesApiService.query === '') {
-        return alert('Please enter the word for starting the search');
+        return error({
+            text: "Sorry, but for start of search you have to enter the word",
+            delay: 3000,
+            mouseReset: true,
+        });
     };
 
     imagesApiService.resetPage();

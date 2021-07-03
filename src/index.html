@@ -9,40 +9,49 @@
     href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <form class="search-form" id="search-form">
-        <input
-          type="text"
-          name="query"
-          autocomplete="off"
-          placeholder="Search images..."
-        />
-    </form>
-
-    <ul class="gallery"></ul>
-
-    <button
-        type="button"
-        class="btn"
-        data-action="load-more"
-    >
-        <span
-            class="spinner-border spinner-border-sm spinner"
-            role="status"
-            aria-hidden="false"
-        >
-        <!-- </span>
-        <span class="material-icons-outlined">
-            refresh
-        </span>
-        <span class="material-icons">
-            update
-        </span> -->
-        <span class="labbel">Показать ещё</span>
-    </button>
+    <main>
+        <div class="container">
+            <h1 class="header">Enter what you're looking for</h1>
+            <form class="search-form" id="search-form">
+                <input
+                  type="text"
+                  name="query"
+                  autocomplete="off"
+                  placeholder="Search images..."
+                />
+            </form>
+        
+            <ul class="gallery"></ul>
+        
+            <button
+                type="button"
+                class="btn"
+                data-action="load-more"
+            >
+                <span
+                    class="spinner-border spinner-border-sm spinner"
+                    role="status"
+                    aria-hidden="false"
+                >
+                <!-- </span>
+                <span class="material-icons-outlined">
+                    refresh
+                </span>
+                <span class="material-icons">
+                    update
+                </span> -->
+                <span class="labbel">Показать ещё</span>
+            </button>
+        </div>
+    </main>
+    
+    
 
     <script src="./index.js"></script>
 </body>
