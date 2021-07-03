@@ -28,10 +28,20 @@ export default class ImagesApiService {
         if(!response.ok) {
             throw Error(`Sorry, but such country doesn't exist`);
         }
-        return response.json()})
-        .then(image => {
-            this.page += 1;
+            response.json()})
+        .then(images => {
+            console.log(images);
+            this.incrementPage();
+            return images;
         });
+    }
+
+    incrementPage () {
+        this.page +=1;
+    }
+
+    resetPage () {
+        this.page =1;
     }
 
     get query() {
