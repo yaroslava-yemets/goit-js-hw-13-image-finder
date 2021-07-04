@@ -7,15 +7,18 @@ export default class ImagesApiService {
         this.page = 1;
     }
 
-    fetchImages () {
+    async fetchImages () {
         console.log(this);
 
-        return fetch(`${BASE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`)
-        .then(response => response.json())
-        .then(({hits}) => {
+            const response = await fetch(`${BASE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`);
+            
+            if(!response.ok) {
+                throw new Error(`Sorry, but such country doesn't exist ${response.status}`);
+            }
+
+            const images = await response.json();
             this.incrementPage();
-            return hits;
-        });
+            return await images.hits;
     }
 
     incrementPage () {
