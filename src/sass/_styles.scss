@@ -12,7 +12,8 @@ body {
 
 img {
     display: block;
-    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
 main {
@@ -44,6 +45,10 @@ main {
 
     &-item {
         width: 28vw;
+
+        &:nth-last-child(n+4) {
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -79,12 +84,18 @@ main {
     display: flex;
     flex-wrap: wrap;
     padding: 15px;
+    
+    box-shadow: 0px 2px 2px var(--bcg-color);
 
     &-item {
         display: flex;
         align-items: center;
         margin-top: 10px;
         margin-bottom: 10px;
+        color: rgb(74, 31, 114);
+        font-family: var(--main-font);
+        font-size: 15px;
+        font-weight: 800;
 
         &:not(:last-child) {
             margin-right: 15px;
@@ -94,4 +105,43 @@ main {
 
 .material-icons {
     margin-right: 10px;
+    color: var(--text-and-border-color);
+
+    &.up {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    &.down {
+        position: fixed;
+        left: 15px;
+        top: 15px;
+    }
+
+    &.up, &.down {
+        border-radius: 15px;
+        background-color: var(--bcg-color);
+        border: var(--text-and-border-color) solid 1px;
+    }
 }
+
+.button {
+    margin: 0 auto;
+    display: block;
+    border-radius: 15px;
+    border: var(--text-and-border-color) solid 1px;
+    background-color: var(--bcg-color);
+    color: var(--text-and-border-color);
+    width: 200px;
+    height: 50px;
+    font-family: var(--main-font);
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 400;
+
+    &.is-hidden {
+        display: none;
+    }
+}
+
