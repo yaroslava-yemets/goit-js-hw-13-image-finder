@@ -29,29 +29,24 @@
         
             <ul class="gallery"></ul>
         
+            <div class="loader loader-js is-hidden"></div>
             <button
                 type="button"
-                class="btn"
+                class="button is-hidden"
                 data-action="load-more"
             >
-                <span
-                    class="spinner-border spinner-border-sm spinner"
-                    role="status"
-                    aria-hidden="false"
-                >
-                <!-- </span>
-                <span class="material-icons-outlined">
-                    refresh
-                </span>
-                <span class="material-icons">
-                    update
-                </span> -->
-                <span class="labbel">Показать ещё</span>
+                Show more
+            </button>
+
+            <button type="button" class="material-icons down down-js">
+                arrow_downward
+            </button>
+
+            <button type="button" class="material-icons up up-js">
+                arrow_upward
             </button>
         </div>
     </main>
-    
-    
 
     <script src="./index.js"></script>
 </body>
