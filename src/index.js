@@ -6,6 +6,7 @@ import { error, notice } from "@pnotify/core";
 import "@pnotify/core/dist/PNotify.css";
 import "@pnotify/core/dist/BrightTheme.css";
 
+import onImageClick from './js/imageModal.js';
 
 const refs = {
     form: document.querySelector('#search-form'),
@@ -22,6 +23,7 @@ refs.form.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
 refs.upArrow.addEventListener('click', onUpArrow);
 refs.downArrow.addEventListener('click', onDownArrow);
+refs.gallery.addEventListener('click', onImageClick);
 
 async function onSearch (evt) {
     evt.preventDefault();
@@ -104,5 +106,4 @@ function onUpArrow (e) {
         behavior: 'smooth',
         block: 'start',
     });
-}
-
+};
